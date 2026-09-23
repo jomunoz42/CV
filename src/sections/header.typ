@@ -1,8 +1,6 @@
 #import "../data.typ": contact
 #import "../components.typ": contact-line
-#import "../style.typ": ink, accent
-
-#let square-icon(fill: ink) = rect(width: 7pt, height: 7pt, fill: fill, stroke: none)
+#import "../style.typ": accent
 
 #let header-section() = {
   grid(
@@ -21,18 +19,15 @@
     ],
     [
       #set text(size: 10pt)
-      #contact-line(square-icon(fill: black), contact.phone)
+      #contact-line("phone", contact.phone, url: "tel:+351963342132")
       #v(9.5pt)
-      #contact-line(square-icon(), link("mailto:" + contact.email, contact.email))
+      #contact-line("email", contact.email, url: "mailto:" + contact.email)
       #v(9.5pt)
-      #contact-line(square-icon(), contact.location)
+      #contact-line("location", contact.location)
       #v(9.5pt)
-      #contact-line(square-icon(), underline(link(contact.linkedin)[LinkedIn]))
+      #contact-line("linkedin", [LinkedIn], url: contact.linkedin, underline-link: true)
       #v(9.5pt)
-      #contact-line(
-        circle(radius: 3.5pt, stroke: 1.6pt + black),
-        underline(link(contact.github)[Github]),
-      )
+      #contact-line("github", [Github], url: contact.github, underline-link: true)
     ],
   )
   v(7.5pt)
