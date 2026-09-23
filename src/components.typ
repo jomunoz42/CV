@@ -13,13 +13,30 @@
   list(..items.map(item => [#item]))
 }
 
-#let contact-line(icon, body, url: none) = {
+#let cv-icon(name, size: 7.5pt) = image(
+  "../assets/icons/" + name + ".svg",
+  width: size,
+  height: size,
+  fit: "contain",
+)
+
+#let contact-line(icon, body, url: none, underline-link: false) = {
+  let label = if url == none {
+    body
+  } else if underline-link {
+    underline(link(url, body))
+  } else {
+    link(url, body)
+  }
+
   grid(
-    columns: (12pt, 1fr),
-    column-gutter: 3pt,
+    columns: (11pt, 1fr),
+    column-gutter: 4pt,
     align: (center, left),
-    icon,
-    if url == none { body } else { link(url, body) },
+    box(width: 11pt, height: 9pt)[
+      #align(center + horizon)[#cv-icon(icon)]
+    ],
+    label,
   )
 }
 
@@ -54,11 +71,10 @@
   let targets = if type(urls) == str { (urls,) } else { urls }
   stack(
     dir: ttb,
-    spacing: 2pt,
+    spacing: 2.5pt,
     ..targets.map(url => link(url)[
-      #box(width: 7pt, height: 7pt)[
-        #place(dx: 0pt, dy: 2pt)[#rect(width: 4pt, height: 5pt, fill: black)]
-        #place(dx: 3pt, dy: 0pt)[#rect(width: 4pt, height: 5pt, fill: black)]
+      #box(width: 8pt, height: 8pt)[
+        #align(center + horizon)[#cv-icon("repository", size: 7.6pt)]
       ]
     ]),
   )
@@ -69,15 +85,15 @@
   block[
     #place(top + right)[#text(size: 7.3pt)[#project.date]]
     #grid(
-    columns: (9pt, 1fr),
-    column-gutter: 4pt,
-    align: (top, top),
-    project-icon(targets),
-    [
-      #text(size: 10pt)[#project.title]
-      #v(8.8pt)
-      #compact-list(project.bullets)
-    ],
+      columns: (10pt, 1fr),
+      column-gutter: 4pt,
+      align: (top, top),
+      project-icon(targets),
+      [
+        #text(size: 10pt)[#project.title]
+        #v(8.8pt)
+        #compact-list(project.bullets)
+      ],
     )
   ]
 }
