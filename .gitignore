@@ -1,0 +1,8 @@
+# Generated Typst output (the canonical local result is rebuilt with `make`).
+/dist/*.pdf
+
+# Temporary/editor files.
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
