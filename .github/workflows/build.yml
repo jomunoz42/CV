@@ -20,4 +20,3 @@ jobs:
         with:
           name: joao-munoz-cv
           path: dist/joao_munoz_cv.pdf
-*** Delete File: scripts/_inspect_pdf.mjs
