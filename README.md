@@ -37,6 +37,7 @@ The generated document is `dist/joao_munoz_cv.pdf`.
 ```text
 .
 ├── current_cv.pdf             # authoritative reference
+├── assets/icons/              # embedded SVG icons used by the CV
 ├── src/
 │   ├── main.typ               # document assembly
 │   ├── data.typ               # CV content and structured records
@@ -49,6 +50,6 @@ The generated document is `dist/joao_munoz_cv.pdf`.
 └── requirements.txt
 ```
 
-Edit contact details, experience, education, projects, skills, and languages in `src/data.typ`. Section modules control section-specific layout, reusable patterns live in `src/components.typ`, and document-wide visual settings live in `src/style.typ`.
+Edit contact details, experience, education, projects, skills, and languages in `src/data.typ`. Section modules control section-specific layout, reusable patterns live in `src/components.typ`, and document-wide visual settings live in `src/style.typ`. Contact and project-link symbols are local SVG assets under `assets/icons/`, so the PDF does not depend on symbol fonts or emoji glyph support.
 
 `requirements.txt` is intentionally empty apart from a note: the build has no Python dependency, and Typst is installed as a standalone CLI rather than through pip.
