@@ -10,11 +10,11 @@ build: $(OUTPUT)
 
 $(OUTPUT): $(SOURCES) $(ASSETS)
 	@mkdir -p dist
-	$(TYPST) compile $(SOURCE) $(OUTPUT)
+	$(TYPST) compile --root . $(SOURCE) $(OUTPUT)
 
 watch:
 	@mkdir -p dist
-	$(TYPST) watch $(SOURCE) $(OUTPUT)
+	$(TYPST) watch --root . $(SOURCE) $(OUTPUT)
 
 clean:
 	rm -f $(OUTPUT)
