@@ -1,6 +1,9 @@
 # Generated Typst output (the canonical local result is rebuilt with `make`).
 /dist/*.pdf
 
+# Windows alternate data streams copied into WSL/Git by accident.
+*:Zone.Identifier
+
 # Temporary/editor files.
 *.tmp
 *.log
