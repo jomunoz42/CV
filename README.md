@@ -21,13 +21,13 @@ make
 Or invoke Typst directly:
 
 ```sh
-typst compile src/main.typ dist/joao_munoz_cv.pdf
+typst compile --root . src/main.typ dist/joao_munoz_cv.pdf
 ```
 
 For live editing:
 
 ```sh
-typst watch src/main.typ dist/joao_munoz_cv.pdf
+typst watch --root . src/main.typ dist/joao_munoz_cv.pdf
 ```
 
 The generated document is `dist/joao_munoz_cv.pdf`.
